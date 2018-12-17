@@ -1,0 +1,235 @@
+$max-width-xs: 767px;
+$max-width-sm: 1040px;
+
+@mixin max-xs {
+  @media (max-width: $max-width-xs) {
+    @content;
+  }
+}
+
+@mixin max-sm {
+  @media (max-width: $max-width-sm) {
+    @content;
+  }
+}
+
+.landing {
+  display: flex;
+
+  @include max-xs {
+    flex-direction: column;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 90vh;
+    margin-left: 30px;
+
+    @include max-xs {
+      height: 75vh;
+    }
+
+    .logo {
+      height: 52px;
+      width: 191px;
+      margin-top: 20px;
+
+      p {
+        font-family: CeraPro-Bold;
+        font-size: 36px;
+        color: #000;
+        letter-spacing: 0;
+      }
+
+      span {
+        color: #4fe9c4;
+        display: inline;
+        -webkit-animation: mover 2s infinite alternate;
+        animation: mover 2s infinite alternate;
+      }
+    }
+
+    &__content {
+      position: relative;
+      top: 30%;
+      transform: translateY(-30%);
+      width: 80%;
+
+      @include max-xs {
+        width: 100%;
+      }
+
+      h2 {
+        font-family: boldFont;
+        font-size: 36px;
+
+        @include max-sm {
+          font-size: 30px;
+        }
+      }
+
+      p {
+        font-family: regularFont;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.6);
+        letter-spacing: 0;
+
+        @include max-sm {
+          font-size: 14px;
+        }
+      }
+      h5 {
+        color: black;
+        margin-top: 30px;
+        opacity: 0.7;
+      }
+
+      a {
+        text-decoration: underline;
+        color: #4fe9c4;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+    &__cta {
+      .try-btn {
+        padding: 10px;
+        background-image: url(https://i.imgur.com/Jc3aypx.jpg);
+        background-size: cover;
+        /* Sketch doesnt export pattern fills at this point */
+        box-shadow: 0 8px 16px 0 rgba(18, 29, 138, 0.1);
+        height: 52px;
+        border-radius: 4px;
+        border: none;
+        font-size: 18px;
+        color: white;
+        margin-right: 20px;
+        outline: none;
+        cursor: pointer;
+        transition: 0.25s all;
+        font-family: CeraPro-Bold;
+
+        &:hover {
+          transform: translateY(-7px);
+        }
+      }
+    }
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://i.ibb.co/GCdq0Hy/Rectangle.png);
+
+    @include max-xs {
+      height: 50vh;
+      width: 100%;
+      background-size: cover;
+      background-image: url(https://i.imgur.com/GT1jhJc.jpg);
+      margin-top:30px;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  height: 10vh;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  background: white;
+  padding: 20px 0;
+
+  @include max-xs {
+    flex-direction: column;
+    height: auto;
+  }
+
+  img {
+    @include max-xs {
+      margin: 10px 0;
+    }
+  }
+}
+
+.green_1 {
+  position: absolute;
+  z-index: -999;
+  bottom: 5%;
+  left: 30%;
+  -webkit-animation: mover 2s infinite alternate;
+  animation: mover 2s infinite alternate;
+
+  @include max-sm {
+    bottom: 0;
+    width: 20%;
+  }
+  @include max-xs {
+    display: none;
+  }
+}
+
+.blue_1 {
+  position: absolute;
+  z-index: -999;
+  bottom: 0;
+  left: -15%;
+  -webkit-animation: mover 2s infinite alternate;
+  animation: mover 2s infinite alternate;
+
+  @include max-sm {
+    bottom: 0;
+    width: 20%;
+  }
+
+  @include max-xs {
+    display: none;
+  }
+}
+
+.blue_2 {
+  position: absolute;
+  z-index: -999;
+  top: 10%;
+  right: 32%;
+  -webkit-animation: mover 2s infinite alternate;
+  animation: mover 2s infinite alternate;
+
+  @include max-sm {
+    right: 27%;
+    width: 20%;
+  }
+
+  @include max-xs {
+    display: none;
+  }
+}
+
+.ReactTypeformEmbed {
+  z-index: -999;
+  position: relative !important;
+}
+
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
